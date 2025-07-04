@@ -30,12 +30,11 @@ app.include_router(ohlcv.router, prefix="/api/ohlcv", tags=["ohlcv"])
 app.include_router(strategy.router, prefix="/api/strategy", tags=["Strategy"])
 app.include_router(metrics.router, prefix="/api/metrics", tags=["Metrics"])
 app.include_router(websocket_stream.router, prefix="/api/ws", tags=["websocket"])
-
-# ✅ FIXED static path
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
+# ✅ FIXED static path
 
 @app.get("/favicon.ico")
 async def favicon():
-    return FileResponse("app/static/favicon.ico")
+    return FileResponse("/static/favicon.ico")
 
 
