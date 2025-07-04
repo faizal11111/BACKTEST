@@ -88,7 +88,6 @@ def compute_metrics(req: MetricsRequest):
         "beta_to_benchmark": round(beta, 2) if beta is not None else None
     }
 
-    return metrics
 @router.get("/returns")
 async def get_mock_returns():
     return [

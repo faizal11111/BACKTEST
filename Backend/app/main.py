@@ -33,7 +33,7 @@ app.include_router(websocket_stream.router, prefix="/api/ws", tags=["websocket"]
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 # ✅ FIXED static path
 
-@app.get("/favicon.ico")
+@app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     return FileResponse("/static/favicon.ico")
 
